@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430803dab27db1543b60645dd54e80a7, type: 3}
+  m_Name: FighterAnimations
+  m_EditorClassIdentifier: 
+  animationSets:
+  - animationClip: {fileID: 7400000, guid: da50d980b37dae148a9d63b19eaf9e22, type: 2}
+    animationID: 0
+  - animationClip: {fileID: 7400000, guid: 67c0fbe06fc18cb4393a99b2ae121314, type: 2}
+    animationID: 1
+  - animationClip: {fileID: 7400000, guid: 6f76b5c8c68fa034287331eda47bf843, type: 2}
+    animationID: 2
+  - animationClip: {fileID: 7400000, guid: 06be018bf16523748b8ea292a831291f, type: 2}
+    animationID: 3
+  - animationClip: {fileID: 7400000, guid: aec78ef9c1046024eaea192fe9dc9362, type: 2}
+    animationID: 4
+  - animationClip: {fileID: 7400000, guid: 45589835d3ce52e40aa0d49104b68f7c, type: 2}
+    animationID: 5
+  - animationClip: {fileID: 7400000, guid: ba6ef442b8429fe46b565f98182ec07e, type: 2}
+    animationID: 6
+  - animationClip: {fileID: 7400000, guid: f4d60b1512e684344807b53989e4d749, type: 2}
+    animationID: 7
+  - animationClip: {fileID: 7400000, guid: 291d9a43f7a69c14886fc43267182b9a, type: 2}
+    animationID: 8
+  - animationClip: {fileID: 7400000, guid: bd71313b87bf6c44ab71150183c9bc57, type: 2}
+    animationID: 9
+  - animationClip: {fileID: 7400000, guid: ac2640d81e99531419a32961f0c94154, type: 2}
+    animationID: 10
+  - animationClip: {fileID: 7400000, guid: 79e82616ef9dbbe40ba3aebf8845aadf, type: 2}
+    animationID: 11
+  - animationClip: {fileID: 7400000, guid: c651112ed4bf0374dba64b2f0e0c77c8, type: 2}
+    animationID: 12
+  - animationClip: {fileID: 7400000, guid: f28ae72b484ee9b4ea471f74395621a2, type: 2}
+    animationID: 13
+  - animationClip: {fileID: 7400000, guid: 16adfce2bc0af124995631d1e71d0fcd, type: 2}
+    animationID: 14
+  - animationClip: {fileID: 7400000, guid: c68c2376a0e7a6047b28682f5e79aac3, type: 2}
+    animationID: 16
+  - animationClip: {fileID: 7400000, guid: bfec417cdf0cdc0449491735431b5e7f, type: 2}
+    animationID: 17
+  - animationClip: {fileID: 7400000, guid: 36f3ab54ccc500b4d8d945a5d60975ac, type: 2}
+    animationID: 18
+  - animationClip: {fileID: 7400000, guid: 755dedba38a107d40b365b47bf21fde1, type: 2}
+    animationID: 19

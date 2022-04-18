@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7e9b27d9d864647a5841e7f16c7975, type: 3}
+  m_Name: PrefabsFactory
+  m_EditorClassIdentifier: 
+  bloodEffect: {fileID: -3201615278968310877, guid: c60ebf864236c754e8e3c2cd69cc908f,
+    type: 3}
+  levels:
+  - {fileID: -4073573042473705705, guid: 6b03f9b8e3efce34598f0c6634934b7c, type: 3}
+  - {fileID: 4338911732787836548, guid: bfc19bcdf124f494cb479ba68810bc52, type: 3}
+  - {fileID: -7995334942899853819, guid: 6e0bfdb30e008ae429b521a78437ec6f, type: 3}
+  - {fileID: 6520681196880346896, guid: f7c34e3ac9919e444af34db64305e660, type: 3}
+  - {fileID: 4898749331913238081, guid: c6df46d104da84243be3ea65b18808d3, type: 3}
+  - {fileID: -4785048882257766013, guid: 435f5b892d337a44cb4f1461f75694ce, type: 3}
+  - {fileID: 6195189884416982679, guid: fb90e865ade15024e81cfaebd2488520, type: 3}
+  - {fileID: 9219174215213929128, guid: a755204bbe7c4d244aff4734d8bdc77e, type: 3}
+  playersPrefabs:
+  - {fileID: 4659193921243494806, guid: 14667a22d8cabc74a8ea7f90df5fa4af, type: 3}
+  - {fileID: 749917012631161304, guid: 49762cb6c4c2ddf4383e5e2a690d73cb, type: 3}
+  - {fileID: 5846001135959714510, guid: 2a46b377ec3e4e24e86c3a959b134af8, type: 3}
+  - {fileID: 6832433042266268804, guid: cdaeab5d643ab724a962498f15a52dfd, type: 3}
+  - {fileID: 1299147959219162411, guid: d4770d247d118ae4a9bd961b5fd75e36, type: 3}
+  - {fileID: 5336704364441800606, guid: a2c863b1b03998f41b41bf7f97c30161, type: 3}
+  - {fileID: 6013291165020435580, guid: 68bfda05cecafed4e9ae495dd64ac4ad, type: 3}
+  - {fileID: 7310779011720450830, guid: 24d7cc5c1df15004698b84c51282bcc4, type: 3}
+  - {fileID: 6267840678799734176, guid: 1edf4a94110b82945885ffe2b88a112c, type: 3}
+  - {fileID: 3193557639171804451, guid: dd39374228252794cba48489bb8a7d8d, type: 3}
+  - {fileID: 2023251977809222236, guid: 2edfec96e3d615a4f8d1c22f422a0850, type: 3}
+  - {fileID: 5949206492835961776, guid: 5843d454645a0404cb06965f73656e97, type: 3}
+  - {fileID: 4835507290599475384, guid: 30152064b191b2d4db00c083f2b137a7, type: 3}
+  - {fileID: 564529522795280222, guid: a1413afa5800d67429e90c1d94b738f7, type: 3}
+  - {fileID: 534608695819148452, guid: d8ba8fa3af27d3b44b23cceb11132031, type: 3}
+  - {fileID: 7129349936751890919, guid: b5209eb8675e82443b9ba753734de020, type: 3}
+  tournamentContentModel: {fileID: 8163919180791035194, guid: 5d2887fb385815841a41f183b4194b44,
+    type: 3}
+  tournamentMatchesModel: {fileID: 8725310462967734603, guid: f51b56c323a304c4fb5c7a5e2657dd42,
+    type: 3}
+  duelInviteContentModel: {fileID: -62317968685330126, guid: a6dc96524aedcf8458d4e2d2cab51d04,
+    type: 3}
+  playersStorageDatas:
+  - playerTag: 0
+    playerPrefab: {fileID: 1334563257438771718, guid: a503c856edffbc64b83524c7a2b21a38,
+      type: 3}
+  - playerTag: 1
+    playerPrefab: {fileID: 4766812160961358606, guid: a3764575b6cb87445b853a2567a65d91,
+      type: 3}
+  - playerTag: 2
+    playerPrefab: {fileID: 7940121325163266119, guid: 702efdd2ccb35294f891ad12741685a0,
+      type: 3}
+  - playerTag: 3
+    playerPrefab: {fileID: 2816460383743587801, guid: be3fbac30f6044e4496436b2766ebb35,
+      type: 3}
+  - playerTag: 4
+    playerPrefab: {fileID: 8880067010469302891, guid: 47dd116f15a7c3449aaf4617461b318c,
+      type: 3}
+  - playerTag: 5
+    playerPrefab: {fileID: 6972734605872567185, guid: 0719a0cfc6496ac4a8887dec8e2486e9,
+      type: 3}
