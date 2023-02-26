@@ -20,6 +20,7 @@ public class ArenaButton : MonoBehaviour
 
     public void Setup(Sprite sprite)
     {
+        //test
         image.sprite = sprite;
     }
 
