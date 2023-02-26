@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 18
   itemType: 1
-  itemPurchaseState: 0
+  itemPurchaseState: 1
   iconImage: {fileID: 21300000, guid: dc1ef82667c24e4428079e935c23d037, type: 3}
   price: 500
   itemTagName: Level3

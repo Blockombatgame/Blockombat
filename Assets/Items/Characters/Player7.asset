@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 6
   itemType: 0
-  itemPurchaseState: 0
+  itemPurchaseState: 1
   iconImage: {fileID: 21300000, guid: 37794ac569b64d84b9131f0ef7a6211c, type: 3}
   price: 750
   itemTagName: Player7

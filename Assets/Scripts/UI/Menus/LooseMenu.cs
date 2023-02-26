@@ -18,7 +18,7 @@ public class LooseMenu : Menu
             if (PlayerPrefs.GetString("SoloType") == "Free")
             {
                 loadButton.interactable = true;
-                amountWonText.SetActive(false);
+                //amountWonText.SetActive(false);
             }
         }
         else
