@@ -60,7 +60,7 @@ public class LoginMenu : Menu
         WWWForm form = new WWWForm();
         form.AddField("walletId", walletID.text);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://backend.alphakombat.com/api/v2/auth/login", form))
+        using (UnityWebRequest www = UnityWebRequest.Post(ApiConstants.apiBaseUrl + "/api/v2/auth/login", form))
         {
             yield return www.SendWebRequest();
 

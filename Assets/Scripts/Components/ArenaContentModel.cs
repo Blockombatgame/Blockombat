@@ -56,10 +56,10 @@ public class ArenaContentModel : MonoBehaviour
         form.AddField("walletAddress", PlayerPrefs.GetString("WalletID"));
         form.AddField("hash", "ToPurchaseFromGameStore");
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://backend.alphakombat.com/api/v2/wallet/withdraw", form))
+        using (UnityWebRequest www = UnityWebRequest.Post(ApiConstants.apiBaseUrl + "/api/v2/wallet/withdraw", form))
         {
             www.SetRequestHeader("x-auth-token", PlayerPrefs.GetString("TokenID"));
-            www.SetRequestHeader("alpha-sec-key", "f55da6945d6b8676eff0ae15690cc260d3c64d31a8aa7c6ffb665b855aecd80b5b2a1331a3868a8e11289771f3614d0d");
+            www.SetRequestHeader("alpha-sec-key", ApiConstants.alphaSecKey);
 
             yield return www.SendWebRequest();
 

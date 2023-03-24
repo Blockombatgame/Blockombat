@@ -73,10 +73,10 @@ public class DuelWaitRoom : Menu
 
     IEnumerator RejectQuery()
     {
-        using (UnityWebRequest www = UnityWebRequest.Get("https://backend.alphakombat.com/api/v2/duel/" + PlayerPrefs.GetString("duelID")))
+        using (UnityWebRequest www = UnityWebRequest.Get(ApiConstants.apiBaseUrl + "/api/v2/duel/" + PlayerPrefs.GetString("duelID")))
         {
             www.SetRequestHeader("x-auth-token", PlayerPrefs.GetString("TokenID"));
-            www.SetRequestHeader("alpha-sec-key", "f55da6945d6b8676eff0ae15690cc260d3c64d31a8aa7c6ffb665b855aecd80b5b2a1331a3868a8e11289771f3614d0d");
+            www.SetRequestHeader("alpha-sec-key", ApiConstants.alphaSecKey);
 
             yield return www.SendWebRequest();
 
@@ -114,10 +114,10 @@ public class DuelWaitRoom : Menu
 
     IEnumerator DeleteDuel()
     {
-        using (UnityWebRequest www = UnityWebRequest.Delete("https://backend.alphakombat.com/api/v2/duel/" + PlayerPrefs.GetString("duelID")))
+        using (UnityWebRequest www = UnityWebRequest.Delete(ApiConstants.apiBaseUrl + "/api/v2/duel/" + PlayerPrefs.GetString("duelID")))
         {
             www.SetRequestHeader("x-auth-token", PlayerPrefs.GetString("TokenID"));
-            www.SetRequestHeader("alpha-sec-key", "f55da6945d6b8676eff0ae15690cc260d3c64d31a8aa7c6ffb665b855aecd80b5b2a1331a3868a8e11289771f3614d0d");
+            www.SetRequestHeader("alpha-sec-key", ApiConstants.alphaSecKey);
 
             yield return www.SendWebRequest();
 

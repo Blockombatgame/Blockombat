@@ -23,6 +23,8 @@ MonoBehaviour:
   - {fileID: -4785048882257766013, guid: 435f5b892d337a44cb4f1461f75694ce, type: 3}
   - {fileID: 6195189884416982679, guid: fb90e865ade15024e81cfaebd2488520, type: 3}
   - {fileID: 9219174215213929128, guid: a755204bbe7c4d244aff4734d8bdc77e, type: 3}
+  - {fileID: 2557934389979282853, guid: 9dc41887a805cea469f7cff22f785644, type: 3}
+  - {fileID: 7564375367282661419, guid: 818bc23e7adb03440851f66aab1371ab, type: 3}
   playersPrefabs:
   - {fileID: 4659193921243494806, guid: 14667a22d8cabc74a8ea7f90df5fa4af, type: 3}
   - {fileID: 749917012631161304, guid: 49762cb6c4c2ddf4383e5e2a690d73cb, type: 3}
@@ -64,4 +66,34 @@ MonoBehaviour:
       type: 3}
   - playerTag: 5
     playerPrefab: {fileID: 6972734605872567185, guid: 0719a0cfc6496ac4a8887dec8e2486e9,
+      type: 3}
+  - playerTag: 6
+    playerPrefab: {fileID: 6013291165020435573, guid: 68bfda05cecafed4e9ae495dd64ac4ad,
+      type: 3}
+  - playerTag: 7
+    playerPrefab: {fileID: 7310779011720450823, guid: 24d7cc5c1df15004698b84c51282bcc4,
+      type: 3}
+  - playerTag: 8
+    playerPrefab: {fileID: 6267840678799734185, guid: 1edf4a94110b82945885ffe2b88a112c,
+      type: 3}
+  - playerTag: 9
+    playerPrefab: {fileID: 3193557639171804458, guid: dd39374228252794cba48489bb8a7d8d,
+      type: 3}
+  - playerTag: 10
+    playerPrefab: {fileID: 2023251977809222229, guid: 2edfec96e3d615a4f8d1c22f422a0850,
+      type: 3}
+  - playerTag: 11
+    playerPrefab: {fileID: 5949206492835961785, guid: 5843d454645a0404cb06965f73656e97,
+      type: 3}
+  - playerTag: 12
+    playerPrefab: {fileID: 5336704364441800599, guid: a2c863b1b03998f41b41bf7f97c30161,
+      type: 3}
+  - playerTag: 13
+    playerPrefab: {fileID: 564529522795280215, guid: a1413afa5800d67429e90c1d94b738f7,
+      type: 3}
+  - playerTag: 14
+    playerPrefab: {fileID: 534608695819148461, guid: d8ba8fa3af27d3b44b23cceb11132031,
+      type: 3}
+  - playerTag: 15
+    playerPrefab: {fileID: 4659193921243494796, guid: 14667a22d8cabc74a8ea7f90df5fa4af,
       type: 3}

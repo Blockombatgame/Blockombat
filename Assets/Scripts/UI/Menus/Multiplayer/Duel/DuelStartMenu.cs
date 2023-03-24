@@ -141,7 +141,7 @@ public class DuelStartMenu : Menu
         //form.AddField("stake", "20");
         form.AddField("invitedPlayerId", PlayerPrefs.GetString("playerId"));
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://backend.alphakombat.com/api/v2/duel/join", form))
+        using (UnityWebRequest www = UnityWebRequest.Post(ApiConstants.apiBaseUrl + "/api/v2/duel/join", form))
         {
             www.SetRequestHeader("x-auth-token", PlayerPrefs.GetString("TokenID"));
 
@@ -173,10 +173,10 @@ public class DuelStartMenu : Menu
 
     IEnumerator GetDuelHostName()
     {
-        using (UnityWebRequest www = UnityWebRequest.Get("https://backend.alphakombat.com/api/v2/duel/" + PlayerPrefs.GetString("duelID")))
+        using (UnityWebRequest www = UnityWebRequest.Get(ApiConstants.apiBaseUrl + "/api/v2/duel/" + PlayerPrefs.GetString("duelID")))
         {
             www.SetRequestHeader("x-auth-token", PlayerPrefs.GetString("TokenID"));
-            www.SetRequestHeader("alpha-sec-key", "f55da6945d6b8676eff0ae15690cc260d3c64d31a8aa7c6ffb665b855aecd80b5b2a1331a3868a8e11289771f3614d0d");
+            www.SetRequestHeader("alpha-sec-key", ApiConstants.alphaSecKey);
 
             yield return www.SendWebRequest();
 
@@ -228,10 +228,10 @@ public class DuelStartMenu : Menu
         form.AddField("stake", PlayerPrefs.GetString("stakeAmount"));
         form.AddField("invitedPlayerId", PlayerPrefs.GetString("playerId"));
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://backend.alphakombat.com/api/v2/duel/join", form))
+        using (UnityWebRequest www = UnityWebRequest.Post(ApiConstants.apiBaseUrl + "/api/v2/duel/join", form))
         {
             www.SetRequestHeader("x-auth-token", PlayerPrefs.GetString("TokenID"));
-            www.SetRequestHeader("alpha-sec-key", "f55da6945d6b8676eff0ae15690cc260d3c64d31a8aa7c6ffb665b855aecd80b5b2a1331a3868a8e11289771f3614d0d");
+            www.SetRequestHeader("alpha-sec-key", ApiConstants.alphaSecKey);
 
             yield return www.SendWebRequest();
 
@@ -271,10 +271,10 @@ public class DuelStartMenu : Menu
         form.AddField("walletAddress", PlayerPrefs.GetString("WalletID"));
         form.AddField("hash", "ForDuelCreation");
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://backend.alphakombat.com/api/v2/wallet/withdraw", form))
+        using (UnityWebRequest www = UnityWebRequest.Post(ApiConstants.apiBaseUrl + "/api/v2/wallet/withdraw", form))
         {
             www.SetRequestHeader("x-auth-token", PlayerPrefs.GetString("TokenID"));
-            www.SetRequestHeader("alpha-sec-key", "f55da6945d6b8676eff0ae15690cc260d3c64d31a8aa7c6ffb665b855aecd80b5b2a1331a3868a8e11289771f3614d0d");
+            www.SetRequestHeader("alpha-sec-key", ApiConstants.alphaSecKey);
 
             yield return www.SendWebRequest();
 
@@ -321,10 +321,10 @@ public class DuelStartMenu : Menu
 
     IEnumerator DeleteDuel(Button button)
     {
-        using (UnityWebRequest www = UnityWebRequest.Delete("https://backend.alphakombat.com/api/v2/duel/" + PlayerPrefs.GetString("duelID")))
+        using (UnityWebRequest www = UnityWebRequest.Delete(ApiConstants.apiBaseUrl + "/api/v2/duel/" + PlayerPrefs.GetString("duelID")))
         {
             www.SetRequestHeader("x-auth-token", PlayerPrefs.GetString("TokenID"));
-            www.SetRequestHeader("alpha-sec-key", "f55da6945d6b8676eff0ae15690cc260d3c64d31a8aa7c6ffb665b855aecd80b5b2a1331a3868a8e11289771f3614d0d");
+            www.SetRequestHeader("alpha-sec-key", ApiConstants.alphaSecKey);
 
             yield return www.SendWebRequest();
 
@@ -353,10 +353,10 @@ public class DuelStartMenu : Menu
         form.AddField("invitedPlayer", PlayerPrefs.GetString("Username"));
 
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://backend.alphakombat.com/api/v2/duel/reject", form))
+        using (UnityWebRequest www = UnityWebRequest.Post(ApiConstants.apiBaseUrl + "/api/v2/duel/reject", form))
         {
             www.SetRequestHeader("x-auth-token", PlayerPrefs.GetString("TokenID"));
-            www.SetRequestHeader("alpha-sec-key", "f55da6945d6b8676eff0ae15690cc260d3c64d31a8aa7c6ffb665b855aecd80b5b2a1331a3868a8e11289771f3614d0d");
+            www.SetRequestHeader("alpha-sec-key", ApiConstants.alphaSecKey);
 
             yield return www.SendWebRequest();
 

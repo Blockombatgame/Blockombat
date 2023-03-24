@@ -14,6 +14,9 @@ public class CharacterMenu : Menu
     private GameObject spawnedCharacter, aiSpawnedCharacter;
     private bool characterSelected = false, loaded = false, characterLoaded = false;
     public Text[] playersDisplay;
+    
+    [SerializeField] private List<Button> paginations = new List<Button>();
+    private int lastCount;
 
     private void Start()
     {
@@ -24,6 +27,8 @@ public class CharacterMenu : Menu
         EventManager.Instance.OnMenuChange += RecyclePlayersPrefabs;
 
         LoadCharacterData();
+        InitializePaginations();
+        TurnOnOnePaginations(0);
         loaded = true;
     }
 
@@ -64,23 +69,32 @@ public class CharacterMenu : Menu
     
     private void LoadCharacterData()
     {
-        for (int i = 0; i < FactoryManager.Instance.itemsFactory.GetItems(EnumClass.ItemType.Character).Count; i++)
+        for (int i = lastCount; i < lastCount + 6; i++)
         {
+            if (i >= FactoryManager.Instance.itemsFactory.GetItems(EnumClass.ItemType.Character).Count)
+            {
+                buttonsParent.GetChild(i - lastCount).GetComponent<CharacterButton>().gameObject.SetActive(false);
+                continue;
+            }
+
             switch (FactoryManager.Instance.itemsFactory.GetItems(EnumClass.ItemType.Character)[i].itemPurchaseState)
             {
                 case EnumClass.ItemPurchaseState.NotBought:
-                    buttonsParent.GetChild(i).GetComponent<CharacterButton>().button.interactable = false;
+                    buttonsParent.GetChild(i - lastCount).GetComponent<CharacterButton>().button.interactable = false;
                     break;
                 case EnumClass.ItemPurchaseState.Bought:
-                    buttonsParent.GetChild(i).GetComponent<CharacterButton>().Setup(FactoryManager.Instance.itemsFactory.GetItems(EnumClass.ItemType.Character)[i].iconImage, (EnumClass.PlayerTag)Enum.Parse(typeof(EnumClass.PlayerTag), FactoryManager.Instance.itemsFactory.GetItems(EnumClass.ItemType.Character)[i].itemTagName));
-                    buttonsParent.GetChild(i).GetComponent<CharacterButton>().button.interactable = true;
+                    buttonsParent.GetChild(i - lastCount).GetComponent<CharacterButton>().Setup(FactoryManager.Instance.itemsFactory.GetItems(EnumClass.ItemType.Character)[i].iconImage, 
+                        (EnumClass.PlayerTag)Enum.Parse(typeof(EnumClass.PlayerTag), FactoryManager.Instance.itemsFactory.GetItems(EnumClass.ItemType.Character)[i].itemTagName));
+                    buttonsParent.GetChild(i - lastCount).GetComponent<CharacterButton>().button.interactable = true;
                     break;
                 case EnumClass.ItemPurchaseState.ComingSoon:
-                    buttonsParent.GetChild(i).GetComponent<CharacterButton>().button.interactable = false;
+                    buttonsParent.GetChild(i - lastCount).GetComponent<CharacterButton>().button.interactable = false;
                     break;
                 default:
                     break;
             }
+
+            buttonsParent.GetChild(i - lastCount).GetComponent<CharacterButton>().gameObject.SetActive(true);
         }
     }
 
@@ -171,5 +185,37 @@ public class CharacterMenu : Menu
         menuTagNames.Add("arena");
         LoadMenu(proceed, menuTagNames);
         blockScreen.gameObject.SetActive(false);
+    }
+
+    private void InitializePaginations()
+    {
+        for (int i = 0; i < paginations.Count; i++)
+        {
+            var index = i;
+            paginations[index].onClick.AddListener(() =>
+            {
+                EventManager.Instance.Click();
+                TurnOnOnePaginations(index);
+                lastCount = index * 6;
+                LoadCharacterData();
+                DeactivateHighlight();
+            });
+        }
+    }
+
+    private void TurnOnOnePaginations(int index)
+    {
+        for (int i = 0; i < paginations.Count; i++)
+        {
+            paginations[i].transform.GetChild(0).gameObject.SetActive(i == index);
+        }
+    }
+
+    private void DeactivateHighlight()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            buttonsParent.GetChild(i).GetComponent<CharacterButton>().DeactivateHighlight();
+        }
     }
 }

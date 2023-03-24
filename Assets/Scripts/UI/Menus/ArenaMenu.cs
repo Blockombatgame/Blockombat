@@ -9,6 +9,8 @@ public class ArenaMenu : Menu
     private bool arenaSelected = false, loaded = false;
     public Transform buttonsParent;
     public int selectedArena;
+    [SerializeField] private List<Button> paginations = new List<Button>();
+    public int lastCount;
 
     private void Start()
     {
@@ -18,6 +20,9 @@ public class ArenaMenu : Menu
         EventManager.Instance.OnArenaSelect += ArenaSelect;
 
         LoadArenaData();
+        InitializePaginations();
+        TurnOnOnePaginations(0);
+
         loaded = true;
     }
 
@@ -48,7 +53,7 @@ public class ArenaMenu : Menu
                 buttonsParent.GetChild(i).GetComponent<ArenaButton>().DeactivateHighlight();
         }
 
-        PlayerPrefs.SetInt("ArenaSelected", id);
+        PlayerPrefs.SetInt("ArenaSelected", id + lastCount);
         selectedArena = id;
 
         if (!arenaSelected)
@@ -60,23 +65,31 @@ public class ArenaMenu : Menu
 
     private void LoadArenaData()
     {
-        for (int i = 0; i < FactoryManager.Instance.itemsFactory.GetItems(EnumClass.ItemType.Level).Count; i++)
+        for (int i = lastCount; i < lastCount + 8; i++)
         {
+            if (i >= FactoryManager.Instance.itemsFactory.GetItems(EnumClass.ItemType.Level).Count)
+            {
+                buttonsParent.GetChild(i - lastCount).GetComponent<ArenaButton>().gameObject.SetActive(false);
+                continue;
+            }
+
             switch (FactoryManager.Instance.itemsFactory.GetItems(EnumClass.ItemType.Level)[i].itemPurchaseState)
             {
                 case EnumClass.ItemPurchaseState.NotBought:
-                    buttonsParent.GetChild(i).GetComponent<ArenaButton>().button.interactable = false;
+                    buttonsParent.GetChild(i - lastCount).GetComponent<ArenaButton>().button.interactable = false;
                     break;
                 case EnumClass.ItemPurchaseState.Bought:
-                    buttonsParent.GetChild(i).GetComponent<ArenaButton>().Setup(FactoryManager.Instance.itemsFactory.GetItems(EnumClass.ItemType.Level)[i].iconImage);
-                    buttonsParent.GetChild(i).GetComponent<ArenaButton>().button.interactable = true;
+                    buttonsParent.GetChild(i - lastCount).GetComponent<ArenaButton>().Setup(FactoryManager.Instance.itemsFactory.GetItems(EnumClass.ItemType.Level)[i].iconImage);
+                    buttonsParent.GetChild(i - lastCount).GetComponent<ArenaButton>().button.interactable = true;
                     break;
                 case EnumClass.ItemPurchaseState.ComingSoon:
-                    buttonsParent.GetChild(i).GetComponent<ArenaButton>().button.interactable = false;
+                    buttonsParent.GetChild(i - lastCount).GetComponent<ArenaButton>().button.interactable = false;
                     break;
                 default:
                     break;
             }
+
+            buttonsParent.GetChild(i - lastCount).GetComponent<ArenaButton>().gameObject.SetActive(true);
         }
     }
 
@@ -90,5 +103,37 @@ public class ArenaMenu : Menu
 
         if (loaded)
             LoadArenaData();
+    }
+
+    private void InitializePaginations()
+    {
+        for (int i = 0; i < paginations.Count; i++)
+        {
+            var index = i;
+            paginations[index].onClick.AddListener(() =>
+            {
+                EventManager.Instance.Click();
+                TurnOnOnePaginations(index);
+                lastCount = index * 8;
+                LoadArenaData();
+                DeactivateHighlight();
+            });
+        }
+    }
+
+    private void TurnOnOnePaginations(int index)
+    {
+        for (int i = 0; i < paginations.Count; i++)
+        {
+            paginations[i].transform.GetChild(0).gameObject.SetActive(i == index);
+        }
+    }
+
+    private void DeactivateHighlight()
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            buttonsParent.GetChild(i).GetComponent<ArenaButton>().DeactivateHighlight();
+        }
     }
 }

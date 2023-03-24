@@ -61,10 +61,10 @@ public class SoloMenu : Menu
         form.AddField("walletAddress", PlayerPrefs.GetString("WalletID"));
         form.AddField("hash", "ForPlayToEarnEntry");
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://backend.alphakombat.com/api/v2/wallet/withdraw", form))
+        using (UnityWebRequest www = UnityWebRequest.Post(ApiConstants.apiBaseUrl + "/api/v2/wallet/withdraw", form))
         {
             www.SetRequestHeader("x-auth-token", PlayerPrefs.GetString("TokenID"));
-            www.SetRequestHeader("alpha-sec-key", "f55da6945d6b8676eff0ae15690cc260d3c64d31a8aa7c6ffb665b855aecd80b5b2a1331a3868a8e11289771f3614d0d");
+            www.SetRequestHeader("alpha-sec-key", ApiConstants.alphaSecKey);
 
             yield return www.SendWebRequest();
 
@@ -101,10 +101,10 @@ public class SoloMenu : Menu
 
     IEnumerator GetEarnAmount(Button button)
     {
-        using (UnityWebRequest www = UnityWebRequest.Get("https://backend.alphakombat.com/api/v2/earn/alkom"))
+        using (UnityWebRequest www = UnityWebRequest.Get(ApiConstants.apiBaseUrl + "/api/v2/earn/alkom"))
         {
             www.SetRequestHeader("x-auth-token", PlayerPrefs.GetString("TokenID"));
-            www.SetRequestHeader("alpha-sec-key", "f55da6945d6b8676eff0ae15690cc260d3c64d31a8aa7c6ffb665b855aecd80b5b2a1331a3868a8e11289771f3614d0d");
+            www.SetRequestHeader("alpha-sec-key", ApiConstants.alphaSecKey);
 
             yield return www.SendWebRequest();
 
